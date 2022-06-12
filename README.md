@@ -1,7 +1,6 @@
 # Test comments app
 It's just a comments app that was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Screenshot
 ![Comments App Screenshot](https://github.com/alirezahs1/comments-app/blob/master/screenshot.png?raw=true)
 
 ## Available Scripts
