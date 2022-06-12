@@ -1,5 +1,18 @@
-export const TitleSupLine = ({className, component="h1", children, ...rest}) => {
+/**
+ * A title with a superscript line
+ */
 
+export const TitleSupLine = ({className, component="h1", children, ...rest}) => {
+	/**
+	 * @param {string} className
+	 * @param {string} component
+	 * @param {string} children
+	 * @param {object} rest
+	 * @returns {JSX.Element}
+	 */
+
+
+	/** Rendering tag can be quantified dynamic */
 	const Tag = component;
 
 	return (

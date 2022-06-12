@@ -1,9 +1,22 @@
+/**
+ * Star sign component.
+ * can be unfilled, filled or half filled.
+ */
+
 import { faStar, faStarHalfStroke } from "@fortawesome/free-regular-svg-icons";
 import { faStar as faStarFilled } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const StarRatingIcon = ({fill=0}) => {
+	/**
+	 * @param {number} fill
+	 * @returns {JSX.Element}
+	 * @memberof StarRating
+	 */
 
+
+
+	/** Check fill value for appropriate icon  */
 	let icon;
 	if (fill <= 0) {
 		icon = faStar;

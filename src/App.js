@@ -1,3 +1,7 @@
+/**
+ * App Component
+ */
+
 import './assets/styles/globals.css'
 import { AppRoutes } from './routes';
 import { BrowserRouter } from 'react-router-dom';

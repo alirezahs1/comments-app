@@ -1,88 +1,28 @@
+/**
+ * List of comments
+ */
+
 import { Comment } from "components/comment"
+import { EmptyPlaceholder } from "components/ui/empty-placeholder"
+import { CommentsMoreButton } from "./comments-more-button"
 
-const fakeCommentsData = [
-	{
-		id: 1,
-		author: {
-			displayName: 'سیاوش تقی‌لو',
-		},
-		timeDiff: '۵ ساعت پیش',
-		isBuyer: true,
-		isLiked: true,
-		score: 5,
-		comment: `یکی از بهترین گوشی هایی که استفاده کردم بود. بسیار عالی و فوق‌العاده انعطاف‌پذیر. چند بار موند زیر ماشین هیچیش نشد. به همه ی ماشین سواران این گوشی رو پیشنهاد میکنم.`,
-		reply: {
-			author: {
-				displayName: 'مدیریت فروشگاه',
-			},
-			timeDiff: '۵ ساعت پیش',
-			comment: "بسیار ممنونم از نقطه نظر شما."
-		},
-		pros: ['بسیار انعطاف‌پذیر'],
-		cons: ['بسیار پر سرعت']
-	},
-	{
-		id: 2,
-		author: {
-			displayName: 'سیاوش تقی‌لو',
-		},
-		timeDiff: '۴ ساعت پیش',
-		isBuyer: true,
-		isLiked: false,
-		score: 4,
-		comment: `یکی از بهترین گوشی هایی که استفاده کردم بود. بسیار عالی و فوق‌العاده انعطاف‌پذیر. چند بار موند زیر ماشین هیچیش نشد. به همه ی ماشین سواران این گوشی رو پیشنهاد میکنم. یکی از بهترین گوشی هایی که استفاده کردم بود. بسیار عالی و فوق‌العاده انعطاف‌پذیر`,
-		reply: null,
-		pros: ['بسیار انعطاف‌پذیر'],
-		cons: ['بسیار پر سرعت']
-	},
-	{
-		id: 3,
-		author: {
-			displayName: 'سیاوش تقی‌لو',
-		},
-		timeDiff: '۵ ساعت پیش',
-		isBuyer: false,
-		isLiked: null,
-		score: 3,
-		comment: `یکی از بهترین گوشی هایی که استفاده کردم بود. بسیار عالی و فوق‌العاده انعطاف‌پذیر. چند بار موند زیر ماشین هیچیش نشد. به همه ی ماشین سواران این گوشی رو پیشنهاد میکنم.`,
-		reply: null,
-		pros: [],
-		cons: []
-	},
-	{
-		id: 4,
-		author: {
-			displayName: 'سیاوش تقی‌لو',
-		},
-		timeDiff: '۵ ساعت پیش',
-		isBuyer: false,
-		isLiked: null,
-		score: 2,
-		comment: `یکی از بهترین گوشی هایی که استفاده کردم بود. بسیار عالی و فوق‌العاده انعطاف‌پذیر. چند بار موند زیر ماشین هیچیش نشد. به همه ی ماشین سواران این گوشی رو پیشنهاد میکنم.`,
-		reply: null,
-		pros: [],
-		cons: []
-	},
-	{
-		id: 5,
-		author: {
-			displayName: 'سیاوش تقی‌لو',
-		},
-		timeDiff: '۵ ساعت پیش',
-		isBuyer: false,
-		isLiked: null,
-		score: 1,
-		comment: `یکی از بهترین گوشی هایی که استفاده کردم بود. بسیار عالی و فوق‌العاده انعطاف‌پذیر. چند بار موند زیر ماشین هیچیش نشد. به همه ی ماشین سواران این گوشی رو پیشنهاد میکنم.`,
-		reply: null,
-		pros: [],
-		cons: []
-	},
-]
+export const CommentsList = ({comments, hasMore, onClickMore}) => {
+	/**
+	 * @param {Array<Object>} comments
+	 * @param {boolean} hasMore
+	 * @param {function} onClickMore
+	 * @returns {JSX.Element}
+	 * @memberof Comments
+	 */
 
-export const CommentsList = () => {
+	if (!comments?.length) {
+		return <EmptyPlaceholder />;
+	}
+
 	return (
 		<>
-			{fakeCommentsData.map(comment => (
+			{/** Show comment's component in loop */}
+			{comments.map(comment => (
 				<Comment
 					key={comment.id}
 					score={comment.score}
@@ -99,6 +39,11 @@ export const CommentsList = () => {
 					replyComment={comment?.reply?.comment}
 					/>
 			))}
+
+			{/** Show more button if there are more comments */}
+			{hasMore && (
+				<CommentsMoreButton onClick={onClickMore} />
+			)}
 		</>
 	)
 }

@@ -1,5 +1,5 @@
 /**
- * Button component
+ * General button component
  */
 
 
@@ -7,7 +7,6 @@
 
 	/**
 	 * Rendering the UI
-	 * The `Breadcrumb.Item` component is used to render the items inside the breadcrumbs.
 	 */
 
 	return (
